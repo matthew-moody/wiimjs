@@ -1,0 +1,26 @@
+{
+  "name": "wiimjs",
+  "version": "1.0.0",
+  "description": "JS Library for the WiiM HTTP API",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescipt": "^1.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.8.3",
+    "https": "^1.0.0"
+  }
+}
