@@ -1,5 +1,6 @@
 import { GetPlayerStatusMapper } from "../../mapper/GetPlayerStatus";
 import { IPlayAudioPlaylistRequest } from "../../model/request/playback/PlayAudioPlaylist";
+import { ELoopMode } from "../../model/request/playback/SetLoopMode";
 import { IGetPlaybackStatusResponse } from "../../model/response/playback/GetPlaybackStatus";
 import { IGetPlayerStatusWiimResponse } from "../../model/wiim/response/playback/GetPlaybackStatus";
 import { WiimHttpClient } from "../WiimHttpClient";
@@ -59,5 +60,63 @@ export class PlaybackClient extends SubClient {
    */
   async togglePlayback(): Promise<void> {
     await this.httpClient.doHttpAction("setPlayerCmd:onepause");
+  }
+
+  /**
+   * Advance to next track
+   */
+  async next(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:next");
+  }
+
+  /**
+   * Go back to previous track
+   */
+  async previous(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:prev");
+  }
+
+  /**
+   * Seek to a specific time in the track
+   */
+  async seek(time: number): Promise<void> {
+    await this.httpClient.doHttpAction(`setPlayerCmd:seek:${time.toString()}`);
+  }
+
+  /**
+   * Stop playback
+   */
+  async stop(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:stop");
+  }
+
+  /**
+   * Set volume level
+   */
+  async setVolume(volume: number): Promise<void> {
+    await this.httpClient.doHttpAction(`setPlayerCmd:vol:${volume.toString()}`);
+  }
+
+  /**
+   * Mute volume
+   */
+  async mute(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:mute:1");
+  }
+
+  /**
+   * Unmute volume
+   */
+  async unmute(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:mute:0");
+  }
+
+  /**
+   * Set loop mode
+   */
+  async setLoopMode(loopMode: ELoopMode): Promise<void> {
+    await this.httpClient.doHttpAction(
+      `setPlayerCmd:loopmode:${loopMode.toString()}`
+    );
   }
 }
