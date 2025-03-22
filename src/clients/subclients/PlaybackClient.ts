@@ -23,4 +23,11 @@ export class PlaybackClient extends SubClient {
   async playAudioUrl(url: string): Promise<void> {
     await this.httpClient.doHttpAction(`setPlayerCmd:play:${url}`);
   }
+
+  async playAudioPlaylist(request: IPlayAudioPlaylistRequest): Promise<void> {
+    const { url, startIndex } = request;
+    await this.httpClient.doHttpAction(
+      `setPlayerCmd:playlist:${url}:${startIndex.toString()}`
+    );
+  }
 }
