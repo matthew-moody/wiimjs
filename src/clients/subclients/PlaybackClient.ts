@@ -1,4 +1,5 @@
 import { GetPlayerStatusMapper } from "../../mapper/GetPlayerStatus";
+import { IPlayAudioPlaylistRequest } from "../../model/request/playback/PlayAudioPlaylist";
 import { IGetPlaybackStatusResponse } from "../../model/response/playback/GetPlaybackStatus";
 import { IGetPlayerStatusWiimResponse } from "../../model/wiim/response/playback/GetPlaybackStatus";
 import { WiimHttpClient } from "../WiimHttpClient";
@@ -17,5 +18,9 @@ export class PlaybackClient extends SubClient {
     const mapper = new GetPlayerStatusMapper();
     const mappedResponse = mapper.mapWiimToCustom(response);
     return mappedResponse;
+  }
+
+  async playAudioUrl(url: string): Promise<void> {
+    await this.httpClient.doHttpAction(`setPlayerCmd:play:${url}`);
   }
 }
