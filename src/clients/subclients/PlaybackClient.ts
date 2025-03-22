@@ -39,4 +39,25 @@ export class PlaybackClient extends SubClient {
       `setPlayerCmd:playlist:${url}:${startIndex.toString()}`
     );
   }
+
+  /**
+   * Pause playback
+   */
+  async pause(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:pause");
+  }
+
+  /**
+   * Resumes playback
+   */
+  async resume(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:resume");
+  }
+
+  /**
+   * Toggles playback between play/pause states
+   */
+  async togglePlayback(): Promise<void> {
+    await this.httpClient.doHttpAction("setPlayerCmd:onepause");
+  }
 }
