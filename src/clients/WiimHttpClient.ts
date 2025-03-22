@@ -16,8 +16,9 @@ export class WiimHttpClient {
   }
 
   async doHttpAction<T>(actionName: string): Promise<T> {
-    console.log("Making request to: ", this.baseUrl + actionName);
-    const response = await axiosClient.get(this.baseUrl + actionName);
+    const requestUrl = this.baseUrl + actionName;
+    console.log("Making HTTP request to: ", requestUrl);
+    const response = await axiosClient.get(requestUrl);
     return response.data;
   }
 }
