@@ -10,6 +10,9 @@ export class PlaybackClient extends SubClient {
     super(httpClient);
   }
 
+  /**
+   * Get playback status metadata
+   */
   async getPlaybackStatus(): Promise<IGetPlaybackStatusResponse> {
     const response =
       await this.httpClient.doHttpAction<IGetPlayerStatusWiimResponse>(
@@ -20,10 +23,16 @@ export class PlaybackClient extends SubClient {
     return mappedResponse;
   }
 
+  /**
+   * Play a network audio stream
+   */
   async playAudioUrl(url: string): Promise<void> {
     await this.httpClient.doHttpAction(`setPlayerCmd:play:${url}`);
   }
 
+  /**
+   * Play a network audio playlist, starting at a specific index
+   */
   async playAudioPlaylist(request: IPlayAudioPlaylistRequest): Promise<void> {
     const { url, startIndex } = request;
     await this.httpClient.doHttpAction(
