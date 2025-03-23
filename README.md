@@ -7,7 +7,7 @@ JS wrapper for the WiiM HTTP API.
 - Full TS support
 - Updated field names & data types to improve legibility
 
-### Background
+### Background
 
 - Written for API version 1.2
 - Original API documentation found [here](https://www.wiimhome.com/pdf/HTTP%20API%20for%20WiiM%20Products.pdf)
@@ -21,12 +21,12 @@ Over time, more features will be added, but for the current time, I am just addi
 
 ### Future wishes
 
-- [] Add unit tests... this should be a thing already
-- [] Add all API actions
-- [] Add API explorer using Swagger or similar
-- [] Publish to NPM
+- Add unit tests... this should be a thing already
+- Add all API actions
+- Add API explorer using Swagger or similar
+- Publish to NPM
 
-### Security note
+### Security note
 WiiM products use self-signed certificates. In order to process requests, this needs to be accepted, which is a vulnerability. Use at your own risk!
 
 ### Contributing
