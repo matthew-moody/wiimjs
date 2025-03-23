@@ -9,12 +9,15 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "tsup"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "tsup": "^8.4.0",
     "typescipt": "^1.0.0"
