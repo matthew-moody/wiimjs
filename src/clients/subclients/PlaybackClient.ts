@@ -1,7 +1,10 @@
+import { GetCurrentTrackMapper } from "../../mapper/GetCurrentTrack";
 import { GetPlayerStatusMapper } from "../../mapper/GetPlayerStatus";
 import { IPlayAudioPlaylistRequest } from "../../model/request/playback/PlayAudioPlaylist";
 import { ELoopMode } from "../../model/request/playback/SetLoopMode";
+import { IGetCurrentTrackResponse } from "../../model/response/playback/GetCurrentTrack";
 import { IGetPlaybackStatusResponse } from "../../model/response/playback/GetPlaybackStatus";
+import { IGetCurrentTrackWiimResponse } from "../../model/wiim/response/playback/GetCurrentTrack";
 import { IGetPlayerStatusWiimResponse } from "../../model/wiim/response/playback/GetPlaybackStatus";
 import { WiimHttpClient } from "../WiimHttpClient";
 import { SubClient } from "./SubClient";
@@ -20,6 +23,19 @@ export class PlaybackClient extends SubClient {
         "getPlayerStatus"
       );
     const mapper = new GetPlayerStatusMapper();
+    const mappedResponse = mapper.mapWiimToCustom(response);
+    return mappedResponse;
+  }
+
+  /**
+   * Get current track metadata
+   */
+  async getCurrentTrack(): Promise<IGetCurrentTrackResponse> {
+    const response =
+      await this.httpClient.doHttpAction<IGetCurrentTrackWiimResponse>(
+        "getMetaInfo"
+      );
+    const mapper = new GetCurrentTrackMapper();
     const mappedResponse = mapper.mapWiimToCustom(response);
     return mappedResponse;
   }
