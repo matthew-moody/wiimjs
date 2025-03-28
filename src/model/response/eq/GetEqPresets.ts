@@ -1,0 +1,26 @@
+export enum EEqPreset {
+  FLAT = "Flat",
+  ACOUSTIC = "Acoustic",
+  BASS_BOOSTER = "Bass Booster",
+  BASS_REDUCER = "Bass Reducer",
+  CLASSICAL = "Classical",
+  DANCE = "Dance",
+  DEEP = "Deep",
+  ELECTRONIC = "Electronic",
+  HIP_HOP = "Hip-Hop",
+  JAZZ = "Jazz",
+  LATIN = "Latin",
+  LOUDNESS = "Loudness",
+  LOUNGE = "Lounge",
+  PIANO = "Piano",
+  POP = "Pop",
+  R_AND_B = "R&B",
+  ROCK = "Rock",
+  SMALL_SPEAKERS = "Small Speakers",
+  SPOKEN_WORD = "Spoken Word",
+  TREBLE_BOOSTER = "Treble Booster",
+  TREBLE_REDUCER = "Treble Reducer",
+  VOCAL_BOOSTER = "Vocal Booster",
+}
+
+export type TGetEqPresetsResponse = EEqPreset[];
