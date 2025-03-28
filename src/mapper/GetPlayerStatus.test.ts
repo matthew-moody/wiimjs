@@ -8,6 +8,7 @@ import {
   EPlaybackSource,
   EPlaybackStatus,
 } from "../model/response/playback/GetPlaybackStatus";
+import { IGetPlayerStatusWiimResponse } from "../model/wiim/response/playback/GetPlaybackStatus";
 import { GetPlayerStatusMapper } from "./GetPlayerStatus";
 
 describe("GetPlayerStatusMapper", () => {
@@ -105,6 +106,47 @@ describe("GetPlayerStatusMapper", () => {
       expect(() => mapper.mapStatus("UNKNOWN")).toThrow(
         UnknownPlaybackStatusException
       );
+    });
+  });
+
+  // TODO: mapWiimToCustom
+  describe("mapWiimToCustom", () => {
+    it("should map the response correctly", () => {
+      const wiimResponse: IGetPlayerStatusWiimResponse = {
+        type: "0",
+        ch: "0",
+        mode: "31",
+        loop: "4",
+        eq: "0",
+        status: "play",
+        curpos: "12573",
+        offset_pts: "151420",
+        totlen: "234531",
+        alarmflag: "0",
+        plicount: "0",
+        plicurr: "0",
+        vol: "64",
+        mute: "0",
+      };
+
+      const expected = {
+        isSlaveDevice: false,
+        channel: "STEREO",
+        source: "SPOTIFY",
+        loopMode: "NO_SHUFFLE_NO_LOOP",
+        eqPreset: 0,
+        status: "PLAY",
+        trackCursorPosition: 12573,
+        trackLength: 234531,
+        playlistTotalTracks: 0,
+        playlistCurrentTrackNumber: 0,
+        volume: 64,
+        isMuted: false,
+      };
+
+      const actual = mapper.mapWiimToCustom(wiimResponse);
+
+      expect(actual).toEqual(expected);
     });
   });
 });
