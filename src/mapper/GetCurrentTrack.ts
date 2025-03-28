@@ -7,12 +7,12 @@ export class GetCurrentTrackMapper extends BaseMapper {
     wiimResponse: IGetCurrentTrackWiimResponse
   ): IGetCurrentTrackResponse {
     return {
-      album: wiimResponse.metadata.album,
-      title: wiimResponse.metadata.title,
-      artist: wiimResponse.metadata.artist,
-      albumArtUrl: wiimResponse.metadata.albumArtURl,
-      sampleRate: parseInt(wiimResponse.metadata.sampleRate),
-      bitDepth: parseInt(wiimResponse.metadata.bitDepth),
+      album: wiimResponse.metaData.album,
+      title: wiimResponse.metaData.title,
+      artist: wiimResponse.metaData.artist,
+      albumArtUrl: wiimResponse.metaData.albumArtURI,
+      sampleRate: parseInt(wiimResponse.metaData.sampleRate),
+      bitDepth: parseInt(wiimResponse.metaData.bitDepth),
     };
   }
 }

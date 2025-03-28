@@ -8,11 +8,11 @@ describe("GetCurrentTrackMapper", () => {
   describe("mapWiimToCustom", () => {
     it("should map the response correctly", () => {
       const wiimResponse: IGetCurrentTrackWiimResponse = {
-        metadata: {
+        metaData: {
           album: "album",
           title: "title",
           artist: "artist",
-          albumArtURl: "albumArtUrl",
+          albumArtURI: "albumArtUrl",
           sampleRate: "44100",
           bitDepth: "16",
         },

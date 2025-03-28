@@ -1,9 +1,9 @@
 export interface IGetCurrentTrackWiimResponse {
-  metadata: {
+  metaData: {
     album: string;
     title: string;
     artist: string;
-    albumArtURl: string;
+    albumArtURI: string;
     sampleRate: string;
     bitDepth: string;
   };
