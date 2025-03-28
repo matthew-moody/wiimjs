@@ -1,5 +1,5 @@
 import { DevicePowerClient } from "./subclients/DevicePowerClient";
-import { EqClient } from "./subclients/EQClient";
+import { EqClient } from "./subclients/EqClient";
 import { PlaybackClient } from "./subclients/PlaybackClient";
 import { WiimHttpClient } from "./WiimHttpClient";
 
