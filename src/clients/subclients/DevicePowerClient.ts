@@ -1,5 +1,5 @@
 import { DeviceShutdownException } from "../../model/exception/DeviceShutdownException";
-import { IShutdownWiimResponse } from "../../model/wiim/response/devicePower/Shutdown";
+import { IGenericStatusWiimResponse } from "../../model/wiim/response/Status";
 import { WiimHttpClient } from "../WiimHttpClient";
 import { SubClient } from "./SubClient";
 
@@ -19,9 +19,10 @@ export class DevicePowerClient extends SubClient {
    * Shutdown the device immediately
    */
   async shutdown(): Promise<void> {
-    const response = await this.httpClient.doHttpAction<IShutdownWiimResponse>(
-      "shutdown:0"
-    );
+    const response =
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>(
+        "shutdown:0"
+      );
     if (response.status === "Failed") {
       throw new DeviceShutdownException();
     }
@@ -31,9 +32,10 @@ export class DevicePowerClient extends SubClient {
    * Shutdown the device after a delay in seconds
    */
   async shutdownAfterDelay(delaySeconds: number): Promise<void> {
-    const response = await this.httpClient.doHttpAction<IShutdownWiimResponse>(
-      `shutdown:${delaySeconds.toString()}`
-    );
+    const response =
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>(
+        `shutdown:${delaySeconds.toString()}`
+      );
     if (response.status === "Failed") {
       throw new DeviceShutdownException();
     }
@@ -43,9 +45,10 @@ export class DevicePowerClient extends SubClient {
    * Cancel the scheduled shutdown
    */
   async cancelShutdown(): Promise<void> {
-    const response = await this.httpClient.doHttpAction<IShutdownWiimResponse>(
-      "shutdown:-1"
-    );
+    const response =
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>(
+        "shutdown:-1"
+      );
     if (response.status === "Failed") {
       throw new DeviceShutdownException();
     }

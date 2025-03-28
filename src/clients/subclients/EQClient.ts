@@ -3,10 +3,8 @@ import {
   EEqPreset,
   TGetEqPresetsResponse,
 } from "../../model/response/eq/GetEqPresets";
-import { IDisableEqWiimResponse } from "../../model/wiim/response/eq/DisableEq";
-import { IEnableEqWiimResponse } from "../../model/wiim/response/eq/EnableEq";
 import { IIsEqEnabledWiimResponse } from "../../model/wiim/response/eq/IsEqEnabled";
-import { ISetEqPresetWiimResponse } from "../../model/wiim/response/eq/SetEqPreset";
+import { IGenericStatusWiimResponse } from "../../model/wiim/response/Status";
 import { WiimHttpClient } from "../WiimHttpClient";
 import { SubClient } from "./SubClient";
 
@@ -19,9 +17,8 @@ export class EQClient extends SubClient {
    * Enable EQ
    */
   async enableEq(): Promise<void> {
-    const response = await this.httpClient.doHttpAction<IEnableEqWiimResponse>(
-      "EQOn"
-    );
+    const response =
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>("EQOn");
     if (response.status !== "OK") {
       throw new EqControlException("Failed to enable EQ");
     }
@@ -31,9 +28,8 @@ export class EQClient extends SubClient {
    * Disable EQ
    */
   async disableEq(): Promise<void> {
-    const response = await this.httpClient.doHttpAction<IDisableEqWiimResponse>(
-      "EQOff"
-    );
+    const response =
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>("EQOff");
     if (response.status !== "OK") {
       throw new EqControlException("Failed to disable EQ");
     }
@@ -63,7 +59,7 @@ export class EQClient extends SubClient {
    */
   async setEqPreset(preset: EEqPreset): Promise<void> {
     const response =
-      await this.httpClient.doHttpAction<ISetEqPresetWiimResponse>(
+      await this.httpClient.doHttpAction<IGenericStatusWiimResponse>(
         `EQLoad:${preset}`
       );
     if (response.status !== "OK") {
