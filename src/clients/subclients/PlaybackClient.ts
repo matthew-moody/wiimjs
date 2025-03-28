@@ -3,7 +3,7 @@ import { GetPlayerStatusMapper } from "../../mapper/GetPlayerStatus";
 import { IPlayAudioPlaylistRequest } from "../../model/request/playback/PlayAudioPlaylist";
 import { ELoopMode } from "../../model/request/playback/SetLoopMode";
 import { IGetCurrentTrackResponse } from "../../model/response/playback/GetCurrentTrack";
-import { IGetPlaybackStatusResponse } from "../../model/response/playback/GetPlaybackStatus";
+import { IGetPlayerStatusResponse } from "../../model/response/playback/GetPlaybackStatus";
 import { IGetCurrentTrackWiimResponse } from "../../model/wiim/response/playback/GetCurrentTrack";
 import { IGetPlayerStatusWiimResponse } from "../../model/wiim/response/playback/GetPlaybackStatus";
 import { WiimHttpClient } from "../WiimHttpClient";
@@ -17,7 +17,7 @@ export class PlaybackClient extends SubClient {
   /**
    * Get playback status metadata
    */
-  async getPlaybackStatus(): Promise<IGetPlaybackStatusResponse> {
+  async getPlayerStatus(): Promise<IGetPlayerStatusResponse> {
     const response =
       await this.httpClient.doHttpAction<IGetPlayerStatusWiimResponse>(
         "getPlayerStatus"

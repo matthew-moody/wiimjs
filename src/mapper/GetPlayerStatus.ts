@@ -7,7 +7,7 @@ import {
   EPlaybackLoopMode,
   EPlaybackSource,
   EPlaybackStatus,
-  IGetPlaybackStatusResponse,
+  IGetPlayerStatusResponse,
 } from "../model/response/playback/GetPlaybackStatus";
 import { IGetPlayerStatusWiimResponse } from "../model/wiim/response/playback/GetPlaybackStatus";
 import { BaseMapper } from "./BaseMapper";
@@ -97,7 +97,7 @@ export class GetPlayerStatusMapper extends BaseMapper {
 
   mapWiimToCustom(
     wiimResponse: IGetPlayerStatusWiimResponse
-  ): IGetPlaybackStatusResponse {
+  ): IGetPlayerStatusResponse {
     return {
       isSlaveDevice: this.mapIntToBoolean(Number(wiimResponse.type)),
       channel: this.mapChannel(wiimResponse.ch),

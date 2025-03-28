@@ -37,7 +37,7 @@ export enum EPlaybackStatus {
   LOADING = "LOADING",
 }
 
-export interface IGetPlaybackStatusResponse {
+export interface IGetPlayerStatusResponse {
   isSlaveDevice: boolean;
   channel: EPlaybackChannel;
   source: EPlaybackSource;
