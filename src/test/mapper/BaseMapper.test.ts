@@ -1,4 +1,4 @@
-import { BaseMapper } from "./BaseMapper";
+import { BaseMapper } from "../../main/mapper/BaseMapper";
 
 describe("BaseMapper", () => {
   const mapper = new BaseMapper();

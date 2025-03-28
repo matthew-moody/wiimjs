@@ -1,15 +1,15 @@
-import { UnknownPlaybackChannelException } from "../model/exception/UnknownPlaybackChannelException";
-import { UnknownPlaybackLoopModeException } from "../model/exception/UnknownPlaybackLoopModeException";
-import { UnknownPlaybackSourceException } from "../model/exception/UnknownPlaybackSourceException";
-import { UnknownPlaybackStatusException } from "../model/exception/UnknownPlaybackStatusException";
+import { UnknownPlaybackChannelException } from "../../main/model/exception/UnknownPlaybackChannelException";
+import { UnknownPlaybackLoopModeException } from "../../main/model/exception/UnknownPlaybackLoopModeException";
+import { UnknownPlaybackSourceException } from "../../main/model/exception/UnknownPlaybackSourceException";
+import { UnknownPlaybackStatusException } from "../../main/model/exception/UnknownPlaybackStatusException";
 import {
   EPlaybackChannel,
   EPlaybackLoopMode,
   EPlaybackSource,
   EPlaybackStatus,
-} from "../model/response/playback/GetPlaybackStatus";
-import { IGetPlayerStatusWiimResponse } from "../model/wiim/response/playback/GetPlaybackStatus";
-import { GetPlayerStatusMapper } from "./GetPlayerStatus";
+} from "../../main/model/response/playback/GetPlaybackStatus";
+import { IGetPlayerStatusWiimResponse } from "../../main/model/wiim/response/playback/GetPlaybackStatus";
+import { GetPlayerStatusMapper } from "../../main/mapper/GetPlayerStatus";
 
 describe("GetPlayerStatusMapper", () => {
   const mapper = new GetPlayerStatusMapper();

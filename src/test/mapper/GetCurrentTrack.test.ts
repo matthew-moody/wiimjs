@@ -1,6 +1,6 @@
-import { IGetCurrentTrackResponse } from "../model/response/playback/GetCurrentTrack";
-import { IGetCurrentTrackWiimResponse } from "../model/wiim/response/playback/GetCurrentTrack";
-import { GetCurrentTrackMapper } from "./GetCurrentTrack";
+import { IGetCurrentTrackResponse } from "../../main/model/response/playback/GetCurrentTrack";
+import { IGetCurrentTrackWiimResponse } from "../../main/model/wiim/response/playback/GetCurrentTrack";
+import { GetCurrentTrackMapper } from "../../main/mapper/GetCurrentTrack";
 
 describe("GetCurrentTrackMapper", () => {
   const mapper = new GetCurrentTrackMapper();
