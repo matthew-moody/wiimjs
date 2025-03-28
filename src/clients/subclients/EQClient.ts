@@ -8,7 +8,7 @@ import { IGenericStatusWiimResponse } from "../../model/wiim/response/Status";
 import { WiimHttpClient } from "../WiimHttpClient";
 import { SubClient } from "./SubClient";
 
-export class EQClient extends SubClient {
+export class EqClient extends SubClient {
   constructor(httpClient: WiimHttpClient) {
     super(httpClient);
   }
